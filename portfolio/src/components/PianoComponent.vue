@@ -1,15 +1,18 @@
 <template>
-  <div class="piano-container">
-    <PianoKey
-      v-for="(keyColor, keyId) in keyMaps"
-      :keyId="keyId"
-      :keyColor="keyColor"
-    ></PianoKey>
+  <div id="piano-container">
+    <div id="piano-wrap">
+      <PianoKey
+        v-for="keyMap in keyMaps"
+        :key="keyMap.keyId"
+        :keyId="keyMap.keyId"
+        :keyColor="keyMap.keyColor"
+      ></PianoKey>
+    </div>
   </div>
 </template>
 
 <script lang="ts">
-import { Component, Vue } from "vue-property-decorater";
+import { Component, Vue } from "vue-property-decorator";
 import PianoKey from "@/components/PianoKey.vue";
 @Component({
   components: { PianoKey },
@@ -65,10 +68,27 @@ export default class PianoComponent extends Vue {
       keyId: "1-ti",
     },
   ];
+  public fingerStatus = false;
   get size(): number {
     return this.keyMaps.length;
   }
 }
 </script>
 
-<style lang="scss" scoped></style>
+<style lang="scss">
+#piano-container {
+  background-color: lightgray;
+  margin: 0 auto;
+  width: calc(100% - 40px);
+  height: 400px;
+  overflow: auto;
+}
+
+#piano-wrap {
+  margin: 0 auto;
+  height: 330px;
+  width: calc(46px * 18);
+  display: flex;
+  justify-content: center;
+}
+</style>

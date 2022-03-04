@@ -1,5 +1,6 @@
 <template>
   <v-container>
+    <h1>{{ mess }}</h1>
     <v-row class="text-center">
       <v-col cols="12">
         <v-img
@@ -34,22 +35,19 @@
 </template>
 
 <script lang="ts">
-import Vue from "vue";
-
-export default Vue.extend({
-  name: "HelloWorld",
-
-  data: () => ({
-    importantLinks: [
-      {
-        text: "Twitter",
-        href: "https://twitter.com/vuetifyjs",
-      },
-      {
-        text: "Articles",
-        href: "https://medium.com/vuetify",
-      },
-    ],
-  }),
-});
+import { Vue, Prop, Component } from "vue-property-decorator";
+@Component
+export default class HelloWorld extends Vue {
+  @Prop({ required: true }) public mess!: string;
+  public importLinks = [
+    {
+      text: "Twitter",
+      href: "https://twitter.com/vuetifyjs",
+    },
+    {
+      text: "Articles",
+      href: "https://medium.com/vuetify",
+    },
+  ];
+}
 </script>

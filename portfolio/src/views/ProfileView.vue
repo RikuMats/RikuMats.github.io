@@ -3,7 +3,7 @@
     <h1>Profile</h1>
     <img alt="temporary img" src="../assets/logo.png" />
     <p>name: Riku</p>
-    <HelloWorld></HelloWorld>
+    <HelloWorld :mess="test"></HelloWorld>
   </div>
 </template>
 
