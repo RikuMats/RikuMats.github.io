@@ -2,10 +2,11 @@
   <div id="piano-container">
     <div id="piano-wrap">
       <PianoKey
-        v-for="keyMap in keyMaps"
-        :key="keyMap.keyId"
-        :keyId="keyMap.keyId"
-        :keyColor="keyMap.keyColor"
+        v-for="i in pianoSize"
+        :key="i"
+        :keyId="i"
+        :scaleName="keyMapOctave[(i - 1) % octaveSize].scaleName"
+        :keyColor="keyMapOctave[(i - 1) % octaveSize].keyColor"
       ></PianoKey>
     </div>
   </div>
@@ -18,66 +19,68 @@ import PianoKey from "@/components/PianoKey.vue";
   components: { PianoKey },
 })
 export default class PianoComponent extends Vue {
-  private keyMaps = [
+  private keyMapOctave = [
     {
       keyColor: "white",
-      keyId: "1-do",
+      scaleName: "ド",
     },
     {
       keyColor: "black",
-      keyId: "1-do-s",
+      scaleName: "ド#",
     },
     {
       keyColor: "white",
-      keyId: "1-re",
+      scaleName: "レ",
     },
     {
       keyColor: "black",
-      keyId: "1-re-s",
+      scaleName: "レ#",
     },
     {
       keyColor: "white",
-      keyId: "1-mi",
+      scaleName: "ミ",
     },
     {
       keyColor: "white",
-      keyId: "1-fa",
+      scaleName: "ファ",
     },
     {
       keyColor: "black",
-      keyId: "1-fa-s",
+      scaleName: "ファ#",
     },
     {
       keyColor: "white",
-      keyId: "1-so",
+      scaleName: "ソ",
     },
     {
       keyColor: "black",
-      keyId: "1-so-s",
+      scaleName: "ソ#",
     },
     {
       keyColor: "white",
-      keyId: "1-la",
+      scaleName: "ラ",
     },
     {
       keyColor: "black",
-      keyId: "1-la-s",
+      scaleName: "ラ#",
     },
     {
       keyColor: "white",
-      keyId: "1-ti",
+      scaleName: "シ",
     },
   ];
   public fingerStatus = false;
-  get size(): number {
-    return this.keyMaps.length;
+  get octaveSize(): number {
+    return this.keyMapOctave.length;
+  }
+  get pianoSize(): number {
+    return this.octaveSize * 2;
   }
 }
 </script>
 
 <style lang="scss">
 #piano-container {
-  background-color: lightgray;
   margin: 0 auto;
   width: calc(100% - 40px);
   height: 400px;
@@ -87,7 +90,7 @@ export default class PianoComponent extends Vue {
 #piano-wrap {
   margin: 0 auto;
   height: 330px;
-  width: calc(46px * 18);
+  width: calc(18 * 46px);
   display: flex;
   justify-content: center;
 }
