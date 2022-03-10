@@ -30,9 +30,7 @@
       <v-toolbar-title>menu</v-toolbar-title>
     </v-app-bar>
     <v-main>
-      <v-container>
-        <router-view />
-      </v-container>
+      <router-view />
     </v-main>
   </v-app>
 </template>

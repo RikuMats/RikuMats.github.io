@@ -1,7 +1,7 @@
 <template>
   <div class="profile">
     <h1>Profile</h1>
-    <img alt="temporary img" src="../assets/logo.png" />
+    <img alt="temporary img" src="../assets/img/logo.png" />
     <p>name: Riku</p>
   </div>
 </template>
