@@ -30,7 +30,9 @@
       <v-toolbar-title>menu</v-toolbar-title>
     </v-app-bar>
     <v-main>
-      <router-view />
+      <v-container>
+        <router-view />
+      </v-container>
     </v-main>
   </v-app>
 </template>
@@ -46,12 +48,17 @@ export default Vue.extend({
     menu_items: [
       {
         name: "profile",
-        icon: "mdi-vuetify",
+        icon: "mdi-account-details",
         linkAddr: "/",
       },
       {
+        name: "works",
+        icon: "mdi-head-lightbulb-outline",
+        linkAddr: "/works",
+      },
+      {
         name: "skills",
-        icon: "mdi-cogs",
+        icon: "mdi-school",
         linkAddr: "/skills",
       },
     ], //
