@@ -1,32 +1,33 @@
 <template>
   <v-app>
     <v-navigation-drawer app v-model="drawer" id="drawer">
-      <v-container>
-        <v-list-item>
-          <v-list-item-content>
-            <v-list-item-title class="title grey--text text--darken-2">
-              Menu
-            </v-list-item-title>
-          </v-list-item-content>
-        </v-list-item>
-        <v-divider></v-divider>
-        <v-container
-          v-for="contents_item in menu_items"
-          :key="contents_item.name"
-          horizontal
-        >
-          <v-btn
-            color="deep-purple accent-4"
-            text
+      <v-list-item>
+        <v-list-item-content>
+          <v-list-item-title class="title grey--text text--darken-2">
+            Menu
+          </v-list-item-title>
+        </v-list-item-content>
+      </v-list-item>
+      <v-divider></v-divider>
+      <v-list dense>
+        <v-list-item-group v-model="selectedItem" color="primary">
+          <v-list-item
+            v-for="contents_item in menu_items"
+            :key="contents_item.name"
             router-link
             :to="contents_item.linkAddr"
-            block
           >
-            <v-icon>{{ contents_item.icon }}</v-icon>
-            <span>{{ contents_item.name }}</span>
-          </v-btn>
-        </v-container>
-      </v-container>
+            <v-list-item-icon>
+              <v-icon>{{ contents_item.icon }}</v-icon>
+            </v-list-item-icon>
+            <v-list-item-content>
+              <v-list-item-tit>
+                {{ contents_item.name }}
+              </v-list-item-tit>
+            </v-list-item-content>
+          </v-list-item>
+        </v-list-item-group>
+      </v-list>
     </v-navigation-drawer>
     <v-app-bar app color="primary" dark>
       <v-app-bar-nav-icon @click="drawer = !drawer"></v-app-bar-nav-icon>
