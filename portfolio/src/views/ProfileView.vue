@@ -1,9 +1,10 @@
 <template>
-  <div class="profile">
+  <v-container>
     <h1>Profile</h1>
+    <v-divider></v-divider>
     <img alt="temporary img" src="../assets/img/logo.png" />
     <p>name: Riku</p>
-  </div>
+  </v-container>
 </template>
 
 <script lang="ts">

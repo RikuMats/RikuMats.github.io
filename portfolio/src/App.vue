@@ -1,6 +1,6 @@
 <template>
   <v-app>
-    <v-navigation-drawer app v-model="drawer">
+    <v-navigation-drawer app v-model="drawer" id="drawer">
       <v-container>
         <v-list-item>
           <v-list-item-content>
@@ -10,19 +10,22 @@
           </v-list-item-content>
         </v-list-item>
         <v-divider></v-divider>
-        <v-list-item
+        <v-container
           v-for="contents_item in menu_items"
           :key="contents_item.name"
+          horizontal
         >
-          <v-list-item-icon>
+          <v-btn
+            color="deep-purple accent-4"
+            text
+            router-link
+            :to="contents_item.linkAddr"
+            block
+          >
             <v-icon>{{ contents_item.icon }}</v-icon>
-          </v-list-item-icon>
-          <v-list-item-content>
-            <router-link :to="contents_item.linkAddr">
-              {{ contents_item.name }}
-            </router-link>
-          </v-list-item-content>
-        </v-list-item>
+            <span>{{ contents_item.name }}</span>
+          </v-btn>
+        </v-container>
       </v-container>
     </v-navigation-drawer>
     <v-app-bar app color="primary" dark>
@@ -42,7 +45,7 @@ export default Vue.extend({
   name: "App",
 
   data: () => ({
-    drawer: null,
+    drawer: false,
     menu_items: [
       {
         name: "profile",
