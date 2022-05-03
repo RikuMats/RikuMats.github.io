@@ -21,9 +21,9 @@
               <v-icon>{{ contents_item.icon }}</v-icon>
             </v-list-item-icon>
             <v-list-item-content>
-              <v-list-item-tit>
+              <v-list-item-title>
                 {{ contents_item.name }}
-              </v-list-item-tit>
+              </v-list-item-title>
             </v-list-item-content>
           </v-list-item>
         </v-list-item-group>
@@ -49,17 +49,17 @@ export default Vue.extend({
     drawer: false,
     menu_items: [
       {
-        name: "profile",
+        name: "Profile",
         icon: "mdi-account-details",
         linkAddr: "/",
       },
       {
-        name: "works",
+        name: "Works",
         icon: "mdi-head-lightbulb-outline",
         linkAddr: "/works",
       },
       {
-        name: "skills",
+        name: "Skills",
         icon: "mdi-school",
         linkAddr: "/skills",
       },
