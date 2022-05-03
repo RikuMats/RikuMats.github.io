@@ -1,21 +1,19 @@
 <template>
   <v-container>
-    <v-list-item>
-      <v-list-item-content>
-        <v-list-item-title class="title grey--text text--darken-2">
-          Skill Set
-        </v-list-item-title>
-      </v-list-item-content>
-    </v-list-item>
+    <h1>Skill Set</h1>
     <v-divider></v-divider>
-    <v-list-item v-for="skill in skills" :key="skill.name">
-      <v-list-item-icon>
-        <v-img :src="skill.logo" height="50" width="50" />
-      </v-list-item-icon>
-      <v-list-item-content>
+    <v-row>
+      <v-col v-for="skill in main_skills" :key="skill.name">
+        <v-img :src="skill.logo" max-height="100" max-width="50"></v-img>
         {{ skill.name }}
-      </v-list-item-content>
-    </v-list-item>
+      </v-col>
+    </v-row>
+    <v-row>
+      <v-col v-for="skill in skills" :key="skill.name">
+        <v-img :src="skill.logo" max-height="100" max-width="50" />
+        {{ skill.name }}
+      </v-col>
+    </v-row>
   </v-container>
 </template>
 
@@ -26,14 +24,32 @@ import { Vue, Component } from "vue-property-decorator";
   components: {},
 })
 export default class WorksView extends Vue {
+  private main_skills = [
+    {
+      name: "C#",
+      logo: require("../assets/img/c-sharp.svg"),
+    },
+    {
+      name: "python",
+      logo: require("../assets/img/python.svg"),
+    },
+  ];
   private skills = [
     {
       name: "C",
       logo: require("../assets/img/c.svg"),
     },
     {
-      name: "python",
-      logo: require("../assets/img/python.svg"),
+      name: "C++",
+      logo: require("../assets/img/c-pp.svg"),
+    },
+    {
+      name: "Java",
+      logo: require("../assets/img/java.svg"),
+    },
+    {
+      name: "php",
+      logo: require("../assets/img/php.svg"),
     },
   ];
 }
