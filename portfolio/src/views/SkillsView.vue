@@ -2,12 +2,14 @@
   <v-container>
     <h1>Skill Set</h1>
     <v-divider></v-divider>
+    <h2>main skills</h2>
     <v-row>
       <v-col v-for="skill in main_skills" :key="skill.name">
         <v-img :src="skill.logo" max-height="100" max-width="50"></v-img>
         {{ skill.name }}
       </v-col>
     </v-row>
+    <h2>other skills</h2>
     <v-row>
       <v-col v-for="skill in skills" :key="skill.name">
         <v-img :src="skill.logo" max-height="100" max-width="50" />
